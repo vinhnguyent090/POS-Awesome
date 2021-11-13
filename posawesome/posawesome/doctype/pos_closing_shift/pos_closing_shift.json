@@ -104,8 +104,7 @@
    "fieldname": "pos_transactions",
    "fieldtype": "Table",
    "label": "POS Transactions",
-   "options": "Sales Invoice Reference",
-   "reqd": 1
+   "options": "Sales Invoice Reference"
   },
   {
    "fieldname": "section_break_9",
@@ -198,7 +197,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-29 04:59:47.560610",
+ "modified": "2021-11-13 15:30:00.665033",
  "modified_by": "Administrator",
  "module": "POSAwesome",
  "name": "POS Closing Shift",
