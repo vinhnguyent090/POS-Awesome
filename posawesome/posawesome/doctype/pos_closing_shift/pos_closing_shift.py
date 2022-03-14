@@ -60,9 +60,14 @@ class POSClosingShift(Document):
 
 @frappe.whitelist()
 def get_cashiers(doctype, txt, searchfield, start, page_len, filters):
-    cashiers_list = frappe.get_all(
-        "POS Profile User", filters=filters, fields=['user'])
-    return [c['user'] for c in cashiers_list]
+    return frappe.db.sql(""" select DISTINCT user from `tabPOS Profile User`
+		where user is NOT NULL
+		limit %(start)s, %(page_len)s""", {
+			'parent': filters.get("parent"),
+			'start': start,
+			'page_len': page_len,
+			'txt': "%%%s%%" % txt
+		})
 
 
 @frappe.whitelist()
