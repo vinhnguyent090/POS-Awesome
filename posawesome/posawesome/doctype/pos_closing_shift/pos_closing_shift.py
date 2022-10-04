@@ -21,9 +21,9 @@ class POSClosingShift(Document):
                                   'period_end_date': ('between', [self.period_start_date, self.period_end_date])
                               })
 
-        if user:
-            frappe.throw(_("POS Closing Shift {} against {} between selected period"
-                           .format(frappe.bold("already exists"), frappe.bold(self.user))), title=_("Invalid Period"))
+        # if user:
+        #     frappe.throw(_("POS Closing Shift {} against {} between selected period"
+        #                    .format(frappe.bold("already exists"), frappe.bold(self.user))), title=_("Invalid Period"))
 
         if frappe.db.get_value("POS Opening Shift", self.pos_opening_shift, "status") != "Open":
             frappe.throw(_("Selected POS Opening Shift should be open."), title=_(
